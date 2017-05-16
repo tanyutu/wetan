@@ -1,0 +1,31 @@
+[stage]
+portal_url = https://access.stage.redhat.com
+url = https://partner-hwcert.redhat.com
+rhcert_url = http://10.65.207.131
+review_url= https://partner-hwcert.redhat.com/redhat_login.cgi
+reviewer_bz_username = rhcert-cwe@redhat.com
+reviewer_bz_password = redhat@123
+partner_sso_username = cwetestuser
+partner_sso_password = redhat
+vendor_page = https://access.partner.redhat.com/ecosystem/vendors/926933
+
+[qa]
+url = http://hwcert-web2-test.devel.redhat.com
+review_url= http://hwcert-web2-test.devel.redhat.com/redhat_login.cgi
+portal_url = https://access.qa.redhat.com
+rhcert_url = http://10.66.15.205
+reviewer_bz_username = huali@redhat.com
+reviewer_bz_password = redhat,123
+partner_sso_username = cwetestuser
+partner_sso_password = redhat
+vendor_page = https://access.qa.redhat.com/ecosystem/vendors/926933
+
+[production]
+url = https://hardware.redhat.com/
+partner_sso_username = cwetestuser
+partner_sso_password = redhat@2017
+reviewer_bz_username = wetan@redhat.com
+reviewer_bz_password = ZAQ!2wsx
+
+
+
