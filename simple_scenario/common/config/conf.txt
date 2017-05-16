@@ -1,31 +1,25 @@
 [stage]
-portal_url = https://access.stage.redhat.com
-url = https://partner-hwcert.redhat.com
-rhcert_url = http://10.65.207.131
-review_url= https://partner-hwcert.redhat.com/redhat_login.cgi
-reviewer_bz_username = rhcert-cwe@redhat.com
-reviewer_bz_password = redhat@123
-partner_sso_username = cwetestuser
-partner_sso_password = redhat
-vendor_page = https://access.partner.redhat.com/ecosystem/vendors/926933
+portal_url = fake_portal_url
+url = cwe_url
+rhcert_url = rchert_url
+review_url= cwe_url_for_reviewer
+reviewer_bz_username = fake_bz_name
+reviewer_bz_password = fake_bz_password
+partner_sso_username = fake_sso_name
+partner_sso_password = fake_sso_password
+
 
 [qa]
-url = http://hwcert-web2-test.devel.redhat.com
-review_url= http://hwcert-web2-test.devel.redhat.com/redhat_login.cgi
-portal_url = https://access.qa.redhat.com
-rhcert_url = http://10.66.15.205
-reviewer_bz_username = huali@redhat.com
-reviewer_bz_password = redhat,123
-partner_sso_username = cwetestuser
-partner_sso_password = redhat
-vendor_page = https://access.qa.redhat.com/ecosystem/vendors/926933
+url = fake_cwe_url
+review_url= fake_cwe_url_for_reviewer
+portal_url = fake_protal_url
+rhcert_url = fake_rhcert_url
+reviewer_bz_username = fake_bz_name
+reviewer_bz_password = fake_bz_password
+partner_sso_username = fake_bz_name
+partner_sso_password = fake_sso_password
 
-[production]
-url = https://hardware.redhat.com/
-partner_sso_username = cwetestuser
-partner_sso_password = redhat@2017
-reviewer_bz_username = wetan@redhat.com
-reviewer_bz_password = ZAQ!2wsx
+
 
 
 
