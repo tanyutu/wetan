@@ -6,6 +6,7 @@ def step_impl(context):
 @Then('check the original value')
 def step_impl(context):
     print(context.first_output)
+    print()
     assert context.first_output == 1
     assert context.second_output == 2
 
