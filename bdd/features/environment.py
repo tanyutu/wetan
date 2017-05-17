@@ -3,8 +3,7 @@ def before_feature(context, feature):
 def before_scenario(context, scenario):
     context.second_output = 2
 
-
-    #before_feature(context, feature), after_feature(context, feature)
+#before_feature(context, feature), after_feature(context, feature)
 # These run before and after each feature file is exercised.
 
 # before_scenario(context, scenario), after_scenario(context, scenario)

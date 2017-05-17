@@ -7,7 +7,8 @@ def step_impl(context):
 @when('I input a letter {letter}')
 def step_impl(context, letter):
     context.letter = letter
-    print(context.letter)
+    print("the letter " + context.letter)
+    print()
 
 @Then('the input letter is Equal to {target_letter}')
 def step_impl(context,target_letter):
