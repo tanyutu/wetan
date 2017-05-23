@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite errors="0" failures="0" name="openstack.E2E OF OPENSTACk" skipped="0" tests="1" time="105.253293"><testcase classname="openstack.E2E OF OPENSTACk" name="Create a cinder" status="passed" time="105.253293"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Create a cinder
+    Given sso_login cwe ... passed in 17.039s
+    Then create cert type show ... passed in 40.678s
+    When create osp "catagory_storage-3122943" "{plugin_type}" "{osp_version}" "{RHEL_version}" ... passed in 47.536s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

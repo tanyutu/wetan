@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite errors="0" failures="0" name="background.try to use background" skipped="0" tests="3" time="0.000304"><testcase classname="background.try to use background" name="this is the first scenario" status="passed" time="0.000101"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: this is the first scenario
+    Given background print ... passed in 0.000s
+    Given scenario 1 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+this is background ########
+
+first scenario print ^^^^^^^^^^^^^^^
+
+
+]]>
+</system-out></testcase><testcase classname="background.try to use background" name="this is the second scenario" status="passed" time="0.000108"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: this is the second scenario
+    Given background print ... passed in 0.000s
+    Given scenario 2 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+this is background ########
+
+second scenario print ***************
+
+
+]]>
+</system-out></testcase><testcase classname="background.try to use background" name="this is the third scenario" status="passed" time="9.5e-05"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: this is the third scenario
+    Given background print ... passed in 0.000s
+    Given scenario 3 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+this is background ########
+
+third scenario print $$$$$$$$$$$$$$
+
+
+]]>
+</system-out></testcase></testsuite>
