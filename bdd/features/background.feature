@@ -10,3 +10,4 @@ Feature: try to use background
 
   Scenario: this is the third scenario
     Given scenario 3
+

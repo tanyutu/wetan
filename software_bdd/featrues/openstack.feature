@@ -5,6 +5,6 @@ Feature: E2E OF OPENSTACk
   Scenario: Create a cinder
     Given sso_login cwe
     Then create cert type show
-    When create osp "catagory_storage-3122943" "{plugin_type}" "{osp_version}" "{RHEL_version}"
+    When create osp "tw_may_regression_testing-2915523" "certification-filestorage-plugin" "Red Hat OpenStack Platform 11.0" "7.3"
 
 
