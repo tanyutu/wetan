@@ -5,7 +5,7 @@ import logging.config
 import os
 import sys
 
-
+file_name = '/home/wetan/workspace/wetan/log/logs/'
 LOGGING = {
     'basic': {
         'version': 1,
@@ -30,7 +30,7 @@ LOGGING = {
                 'level': 'DEBUG',
                 'class': 'logging.FileHandler',
                 'delay': True,
-                'filename': '/home/wetan/workspace/wetan/log/logs/basic.log',
+                'filename': 'basic.log',
                 'formatter': 'verbose'
             }
         },
@@ -46,7 +46,7 @@ LOGGING = {
     'bdd': {
         'handlers': {
             'file': {
-                'filename': '/home/wetan/workspace/wetan/log/logs/bdd_project.log',
+                'filename': '%s/bdd_project.log'%file_name,
             }
         },
         'loggers': {
@@ -61,7 +61,7 @@ LOGGING = {
     'simple_scenario': {
         'handlers': {
             'file': {
-                'filename': '/home/wetan/workspace/wetan/log/logs/simple_scenario.log',
+                'filename': '%s/simple_scenario.log'%file_name,
             }
         },
         'loggers': {
@@ -76,7 +76,7 @@ LOGGING = {
     'software_bdd': {
         'handlers': {
             'file': {
-                'filename': '/home/wetan/workspace/wetan/log/logs/software_bdd.log',
+                'filename': '%s/software_bdd.log'%file_name,
             }
         },
         'loggers': {
