@@ -5,7 +5,7 @@ import logging.config
 import os
 import sys
 
-File_path = os.getcwd()
+
 LOGGING = {
     'basic': {
         'version': 1,
@@ -27,10 +27,10 @@ LOGGING = {
                 'formatter': 'simple'
             },
             'file': {
-                'level': 'INFO',
+                'level': 'DEBUG',
                 'class': 'logging.FileHandler',
                 'delay': True,
-                'filename': '%s/logs/basic.log'%File_path,
+                'filename': '/home/wetan/workspace/wetan/log/logs/basic.log',
                 'formatter': 'verbose'
             }
         },
@@ -46,7 +46,7 @@ LOGGING = {
     'bdd': {
         'handlers': {
             'file': {
-                'filename': '%s/logs/bdd_project.log'%File_path,
+                'filename': '/home/wetan/workspace/wetan/log/logs/bdd_project.log',
             }
         },
         'loggers': {
@@ -61,7 +61,7 @@ LOGGING = {
     'simple_scenario': {
         'handlers': {
             'file': {
-                'filename': '%s/logs/simple_scenario.log'%File_path,
+                'filename': '/home/wetan/workspace/wetan/log/logs/simple_scenario.log',
             }
         },
         'loggers': {
@@ -76,7 +76,7 @@ LOGGING = {
     'software_bdd': {
         'handlers': {
             'file': {
-                'filename': '%s/logs/software_bdd.log'%File_path,
+                'filename': '/home/wetan/workspace/wetan/log/logs/software_bdd.log',
             }
         },
         'loggers': {
@@ -116,9 +116,9 @@ def create_logger(name):
 
 # if __name__ == "__main__":
 #     loggerA = create_logger('bdd')
-#     loggerA.error("log error")
+#     loggerA.debug("log error")
 #
 #     loggerB = create_logger('software_bdd')
 #     loggerB.error("log error 2")
-
-
+#
+#
