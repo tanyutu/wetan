@@ -1,7 +1,13 @@
 import os
 import sys
+import os, sys
+PROJECT_ROOT = os.path.abspath(os.path.realpath('%s/../../../../log' % __file__))
+sys.path.insert(0, PROJECT_ROOT)
+from definition import create_logger
 import argparse
 import yaml
+
+logger = create_logger('software_bdd')
 
 # def parse_arguments():
     # parser = argparse.ArgumentParser('Run  in parallel mode')
@@ -43,11 +49,12 @@ def test_env_setting():
             data['parents'] = file_data['parents']
             return data
     except Exception as msg:
-        print("ERROR: ", msg)
+        logger.error(msg)
         sys.exit(1)
 
 
 
 
-
+# if __name__=="__main__":
+#     test_env_setting()
 

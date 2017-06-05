@@ -1,9 +1,14 @@
+import os, sys
+PROJECT_ROOT = os.path.abspath(os.path.realpath('%s/../../../../log' % __file__))
+sys.path.insert(0, PROJECT_ROOT)
 from behave import *
 from config_parser import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait, Select
+from definition import create_logger
 
+logger = create_logger('software_bdd')
 @given('The evnironment is {env}')
 # we can use this in background to setup the test_env
 def step_impl(context, env):
@@ -17,35 +22,44 @@ def step_impl(context, product, plugin_type, osp_version, RHEL_version):
     common_fields(context)
     continue_btn = context.driver.find_element_by_id('button_next')
     continue_btn.click()
-@When('feature-based manila {protocol-features}')
-# for cinder/manila certs
-def step_impl(context, protocol_features):
-    pass
+@When('feature-based manila "{protocol}"  "{feature}"')
+def step_impl(context, protocol, feature):
+    protocol_feature(context, protocol, feature)
+    submit_btn = context.driver.find_element_by_id('button')
 
 def vendor_product_page(context, product):
-    cert_type = context.driver.find_element_by_xpath(
-        "//a[@title = 'Red Hat Enterprise Linux Openstack Platform']")
-    cert_type.click()
-    WebDriverWait(context.driver, 100).until(
-        EC.presence_of_element_located((By.ID, "vendor")))
-    vendor = Select(context.driver.find_element_by_id('vendor'))
-    vendor.select_by_visible_text('Abbee')
-    product_list = Select(context.driver.find_element_by_name('product_name'))
-    product_list.select_by_visible_text(product)
-    policy = context.driver.find_element_by_id('readPolicy')
-    policy.click()
-    continue_btn = context.driver.find_element_by_id('button')
-    continue_btn.click()
+    try:
+        cert_type = context.driver.find_element_by_xpath(
+            "//a[@title = 'Red Hat Enterprise Linux Openstack Platform']")
+        cert_type.click()
+        WebDriverWait(context.driver, 100).until(
+            EC.presence_of_element_located((By.ID, "vendor")))
+        vendor = Select(context.driver.find_element_by_id('vendor'))
+        vendor.select_by_visible_text('Abbee')
+        product_list = Select(context.driver.find_element_by_name('product_name'))
+        product_list.select_by_visible_text(product)
+        policy = context.driver.find_element_by_id('readPolicy')
+        policy.click()
+        continue_btn = context.driver.find_element_by_id('button')
+        continue_btn.click()
+    except Exception as msg:
+        logger.error(msg)
+
+
 
 def paramenter_fill(context, osp_version, RHEL_version, plugin_type):
-    WebDriverWait(context.driver, 1000).until(
-        EC.element_to_be_clickable((By.ID, "base_rhel_version")))
-    redhat_product = Select(context.driver.find_element_by_id('rh_product_version'))
-    redhat_product.select_by_visible_text(osp_version)
-    rhel_versoin = Select(context.driver.find_element_by_id('base_rhel_version'))
-    rhel_versoin.select_by_visible_text(RHEL_version)
-    component = Select(context.driver.find_element_by_id('component'))
-    component.select_by_visible_text(plugin_type)
+    try:
+        WebDriverWait(context.driver, 1000).until(
+            EC.element_to_be_clickable((By.ID, "base_rhel_version")))
+        redhat_product = Select(context.driver.find_element_by_id('rh_product_version'))
+        redhat_product.select_by_visible_text(osp_version)
+        rhel_versoin = Select(context.driver.find_element_by_id('base_rhel_version'))
+        rhel_versoin.select_by_visible_text(RHEL_version)
+        component = Select(context.driver.find_element_by_id('component'))
+        component.select_by_visible_text(plugin_type)
+    except Exception as msg:
+        logger.error(msg)
+
 
 def common_fields(context):
     product_version = context.driver.find_element_by_name('cert_version')
@@ -75,6 +89,15 @@ def common_fields(context):
     year.select_by_visible_text('2018')
     month.select_by_visible_text('11')
     day.select_by_visible_text('13')
+
+def protocol_feature(context, protocol, feature):
+    protocol_check = context.driver.find_elements_by_xpath("//input[@value=%s]" % protocol)
+    protocol_check.click()
+    features_selected = Select(context.driver.find_element_by_id('manila_%s' % protocol))
+    features_selected.select_by_visible_text(feature)
+
+
+
 
 
 
