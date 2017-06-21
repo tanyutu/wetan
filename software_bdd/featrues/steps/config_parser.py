@@ -43,6 +43,7 @@ def test_env_setting():
     try:
         environment = os.environ.get('TEST_ENV')
         file_path = os.path.join(os.path.dirname(os.getcwd()), 'config.yml')
+        logger.info('TEST-STATUS: auto testing is based on %s' % environment)
         with open(file_path) as file_obj:
             file_data = yaml.safe_load(file_obj)
             data = file_data[environment]

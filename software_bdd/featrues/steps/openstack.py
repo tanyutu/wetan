@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from definition import create_logger
 
 logger = create_logger('software_bdd')
+
 @given('The evnironment is {env}')
 # we can use this in background to setup the test_env
 def step_impl(context, env):
@@ -18,14 +19,18 @@ def step_impl(context, env):
 # on osp first entry page (common usage for every plugin)
 def step_impl(context, product, plugin_type, osp_version, RHEL_version):
     vendor_product_page(context, product)
+    logger.info('TEST-STATUS: choose product is done %s'%product)
     paramenter_fill(context, osp_version, RHEL_version, plugin_type)
     common_fields(context)
     continue_btn = context.driver.find_element_by_id('button_next')
     continue_btn.click()
-@When('feature-based manila "{protocol}"  "{feature}"')
+    logger.info('TEST-STATUS: the openstack is created based on %s %s %s'%(plugin_type,osp_version,RHEL_version))
+
+@When('feature-based manila "{protocol}" "{feature}"')
 def step_impl(context, protocol, feature):
     protocol_feature(context, protocol, feature)
     submit_btn = context.driver.find_element_by_id('button')
+    logger.info('the manial cert has been created successfully')
 
 def vendor_product_page(context, product):
     try:
