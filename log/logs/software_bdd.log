@@ -1,0 +1,8 @@
+2017-06-21T10:47:05 ERROR    [openstack.py:12] checking point
+2017-06-21T10:47:40 INFO     [openstack.py:12] checking point
+2017-06-21T10:53:50 INFO     [common_use.py:25] sso login successfully
+2017-06-21T10:57:44 INFO     [common_use.py:24] TEST-STATUS: sso login successfully
+2017-06-21T10:58:30 INFO     [common_use.py:34] TEST-STATUS: click create link done
+2017-06-21T11:00:00 INFO     [openstack.py:26] TEST-STATUS: the openstack is created based on catagory_storage-3122943 certification-filestorage-plugin Red Hat OpenStack Platform 11.0 7.3
+2017-06-21T11:08:48 INFO     [common_use.py:24] TEST-STATUS: sso login successfully
+2017-06-21T11:09:20 INFO     [config_parser.py:46] TEST-STATUS: auto testing is based on qa
