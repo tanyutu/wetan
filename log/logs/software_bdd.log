@@ -1,8 +1,15 @@
-2017-06-21T10:47:05 ERROR    [openstack.py:12] checking point
-2017-06-21T10:47:40 INFO     [openstack.py:12] checking point
-2017-06-21T10:53:50 INFO     [common_use.py:25] sso login successfully
-2017-06-21T10:57:44 INFO     [common_use.py:24] TEST-STATUS: sso login successfully
-2017-06-21T10:58:30 INFO     [common_use.py:34] TEST-STATUS: click create link done
-2017-06-21T11:00:00 INFO     [openstack.py:26] TEST-STATUS: the openstack is created based on catagory_storage-3122943 certification-filestorage-plugin Red Hat OpenStack Platform 11.0 7.3
-2017-06-21T11:08:48 INFO     [common_use.py:24] TEST-STATUS: sso login successfully
-2017-06-21T11:09:20 INFO     [config_parser.py:46] TEST-STATUS: auto testing is based on qa
+2017-06-26T15:24:41 INFO     [config_parser.py:46] TEST-STATUS: auto testing is based on qa
+2017-06-26T15:25:03 INFO     [common_use.py:24] TEST-STATUS: sso login successfully
+2017-06-26T15:25:59 INFO     [common_use.py:34] TEST-STATUS: click create link done
+2017-06-26T15:27:09 INFO     [openstack.py:24] TEST-STATUS: choose product is done catagory_storage-3122943
+2017-06-26T15:27:38 INFO     [openstack.py:29] TEST-STATUS: the openstack is created based on certification-filestorage-plugin Red Hat OpenStack Platform 11.0 7.3
+2017-06-26T15:27:43 ERROR    [openstack.py:112] ['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'islower', 'isnumeric', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+2017-06-26T15:27:43 ERROR    [openstack.py:117] DHSS True
+2017-06-26T15:27:43 ERROR    [openstack.py:117] DHSS False
+2017-06-26T15:29:56 INFO     [config_parser.py:46] TEST-STATUS: auto testing is based on qa
+2017-06-26T15:30:19 INFO     [common_use.py:24] TEST-STATUS: sso login successfully
+2017-06-26T15:31:09 INFO     [common_use.py:34] TEST-STATUS: click create link done
+2017-06-26T15:32:23 INFO     [openstack.py:24] TEST-STATUS: choose product is done catagory_storage-3122943
+2017-06-26T15:32:56 INFO     [openstack.py:29] TEST-STATUS: the openstack is created based on certification-filestorage-plugin Red Hat OpenStack Platform 11.0 7.3
+2017-06-26T15:33:28 INFO     [openstack.py:36] the manial cert has been created successfully
+2017-06-26T15:33:59 INFO     [openstack.py:130] TEST-STATUS: The bug_id is 1449358

@@ -103,7 +103,7 @@ qa:
     cwe:
       url: <fake_url>
       id:
-      sso_username: <fake_name>
+      sso_username: <fake_username>
       sso_password: <fake_passw>
     caas:
       uri:

@@ -7,9 +7,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from definition import create_logger
+import time
+import re
 
 logger = create_logger('software_bdd')
-
+osp_id = ''
 @given('The evnironment is {env}')
 # we can use this in background to setup the test_env
 def step_impl(context, env):
@@ -26,11 +28,16 @@ def step_impl(context, product, plugin_type, osp_version, RHEL_version):
     continue_btn.click()
     logger.info('TEST-STATUS: the openstack is created based on %s %s %s'%(plugin_type,osp_version,RHEL_version))
 
-@When('feature-based manila "{protocol}" "{feature}"')
-def step_impl(context, protocol, feature):
-    protocol_feature(context, protocol, feature)
-    submit_btn = context.driver.find_element_by_id('button')
+@When('feature-based manila "{protocol}" "{features}"')
+def step_impl(context, protocol, features):
+    protocol_feature(context, protocol, features)
+    submit_btn = context.driver.find_element_by_name('submit')
+    submit_btn.click()
     logger.info('the manial cert has been created successfully')
+
+@Then('the osp cert id')
+def step_impl(context):
+    get_certid(context)
 
 def vendor_product_page(context, product):
     try:
@@ -49,8 +56,6 @@ def vendor_product_page(context, product):
         continue_btn.click()
     except Exception as msg:
         logger.error(msg)
-
-
 
 def paramenter_fill(context, osp_version, RHEL_version, plugin_type):
     try:
@@ -95,13 +100,28 @@ def common_fields(context):
     month.select_by_visible_text('11')
     day.select_by_visible_text('13')
 
-def protocol_feature(context, protocol, feature):
-    protocol_check = context.driver.find_elements_by_xpath("//input[@value=%s]" % protocol)
+def protocol_feature(context, protocol, features):
+    time.sleep(5)
+    protocol_check = context.driver.find_element_by_xpath("//input[@value='%s']"%protocol)
     protocol_check.click()
-    features_selected = Select(context.driver.find_element_by_id('manila_%s' % protocol))
-    features_selected.select_by_visible_text(feature)
+    features_list = features.split(',')
+    for feature in features_list:
+        features_selected = Select(context.driver.find_element_by_id("manila_"+"%s" % protocol))
+        features_selected.select_by_visible_text(feature)
 
-
+def get_certid(context):
+    url = context.driver.current_url
+    pattern = re.compile('=')
+    for bug_id_starts in pattern.finditer(url):
+        bug_id_start = bug_id_starts.end()
+    bug_id = url[int(bug_id_start): len(url)]
+    try:
+        assert int(bug_id) > 0
+    except Exception as msg:
+        logger.error(msg)
+    global osp_id
+    osp_id = bug_id
+    logger.info('TEST-STATUS: The bug_id is %s'%bug_id)
 
 
 
